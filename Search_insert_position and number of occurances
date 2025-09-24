@@ -1,0 +1,43 @@
+35. Search insert position
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        low = 0
+        high = len(nums) - 1
+        while(low <= high):
+            mid = (low+high)//2
+            if(nums[mid] == target):
+                return mid
+            elif nums[mid] > target:
+                high = mid - 1
+            elif nums[mid] < target:
+                low = mid + 1
+        return low
+
+GFG - Number of occurances of a number in sorted array with duplicates
+
+class Solution:
+    def countFreq(self, arr, target):
+        low = 0
+        high = len(arr) - 1
+        first = len(arr)
+        while(low <= high):
+            mid = (low+high)//2
+            if arr[mid] >= target:
+                first = mid
+                high = mid - 1
+            else :
+                low = mid + 1
+        low = 0
+        high = len(arr) - 1
+        last = len(arr)
+        while(low <= high):
+            mid = (low+high)//2
+            if arr[mid] > target :
+                last = mid
+                high = mid - 1
+            else :
+                low = mid + 1
+        last = last - 1
+        return (last - first)+1
+        
+        
