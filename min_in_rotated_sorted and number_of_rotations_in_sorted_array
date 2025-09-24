@@ -1,0 +1,32 @@
+153 . minimum im rotated sorted array :
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        low = 0
+        high = len(nums)-1
+        mini = float("inf")
+        while(low <= high):
+            mid = (low+high)//2
+            if (nums[low] <=nums[mid]):
+                mini = min(mini,nums[low])
+                low = mid + 1
+            elif (nums[mid] <= nums[high]):
+                mini = min(mini,nums[mid])
+                high = mid - 1
+        return mini
+
+GFG - find kth rotation in rotated sorted array
+class Solution:
+    def findKRotation(self, arr):
+        low = 0
+        high = len(arr)-1
+        mini_index = float("inf")
+        while(low <= high):
+            mid = (low+high)//2
+            if (arr[low] <=arr[mid]):
+                mini_index = min(mini,low)
+                low = mid + 1
+            elif (arr[mid] <= arr[high]):
+                mini = min(mini,mid)
+                high_index = mid - 1
+        return mini_index
+        
